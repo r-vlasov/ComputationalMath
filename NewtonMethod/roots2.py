@@ -3,16 +3,16 @@ import pylab
 from matplotlib import mlab
 
 
-top = 10
-bot = -10
+top = 2
+bot = -2
 step = 1
 eps = 0.00001
 
 rootlist = list()
 
 def function(x):
-	term_1 =  1 / (math.exp(x) * (math.sin(x) + math.cos(x)))
-	term_2 = x - math.sin(x) / (math.sin(x) + math.cos(x))
+	term_1 =  x
+	term_2 = - (x * math.cos(x) - 0.56) / (math.cos(x) - x * math.sin(x))
 	return term_1 + term_2
 
 def iterator(cur_pos):
@@ -37,7 +37,6 @@ def solver():
 		if temp not in rootlist:
 			rootlist.append(temp)
 
-
 def observelist():
 	for first, second in zip(rootlist, rootlist[1:]):
 		if abs(first - second) < eps:
@@ -46,8 +45,8 @@ def observelist():
 
 def figure():
 	def realfunction(x):
-		return math.exp(x) * math.sin(x) - 1
-	xlist = mlab.frange(bot, top, 0.001)
+		return x * math.cos(x) - 0.56
+	xlist = mlab.frange(bot, top, 0.00001)
 	ylist = [realfunction(x) for x in xlist]
 
 	pylab.plot(xlist, ylist)
