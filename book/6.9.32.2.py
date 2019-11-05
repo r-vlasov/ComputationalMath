@@ -21,5 +21,6 @@ def figure():
     plt.plot(x, y(x))
     plt.show()
 
+print(f(2010))
 figure()
 print(f(2010))

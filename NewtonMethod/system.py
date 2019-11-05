@@ -26,7 +26,7 @@ def solver(x, y):
 rootlist = list()
 
 step = 0.1
-bot = 0.1
+bot = -1
 top = 1
 current_x = bot
 
