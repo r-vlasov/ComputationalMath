@@ -56,7 +56,7 @@ int main()
 {
     double y0 = 1;
     double z0 = -101;
-    double y1 = 0, z1 = 0;   
+    double y1 = 1, z1 = -101;   
     double t = 0.1;
     double eps = 0.000001;
     	
@@ -77,18 +77,15 @@ int main()
             z1 += (k12(x+t/2, y1, z1, t/2) + 2*k22(x+t/2, y1, z1, t/2) + 2*k32(x+t/2, y1, z1, t/2) + k42(x+t/2, y1, z1, t/2)) / 6;
             y1 += (k11(x+t/2, y1, z1, t/2) + 2*k21(x+t/2, y1, z1, t/2) + 2*k31(x+t/2, y1, z1, t/2) + k41(x+t/2, y1, z1, t/2)) / 6;
             err = abs(y0 - y1) + abs(z0 - z1);
-            if (err >= eps)
+            if (err < eps)
             {
-                break;
+                z1 = z0;
+                y1 = y0;
             }
-            z1 = z0;
-            y1 = y0;
+            else
+                break;
         }
-        if (x >= 1)
-        {
-            break;
-        }
-        else
+        if (x < 1)
         {
             t /= 2;
             y1 = 1;
@@ -96,6 +93,10 @@ int main()
             z1 = -101;
             z0 = -101;
             std::cerr << "Current step: " << t << std::endl;
+        }
+        else
+        {
+            break;
         }
     } while(1);
     
