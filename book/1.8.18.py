@@ -61,11 +61,5 @@ b = Settings_sin(10, 11)
 b_n = b.def_n()
 print(f"sin: [0;1] - {a_n}, [10;11] - {b_n}")
 
-a = Settings_exp()
-a_n = a.def_n()
-b = Settings_sin(10, 11)
-b_n = b.def_n()
-print(f"exp: [0;1] - {a_n}, [10;11] - {b_n}")
-
 
 
