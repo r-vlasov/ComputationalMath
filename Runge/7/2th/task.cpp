@@ -42,7 +42,7 @@ int main()
             y0 += t*(k1(x) + 4*k2(x, t) + k3(x, t))/6;
             y1 += t/2 * (k1(x) + 4*k2(x, t/2) + k3(x, t/2))/6;
             y1 += t/2 * (k1(x+t/2) + 4*k2(x+t/2, t/2) + k3(x+t/2, t/2))/6;
-            err += abs(y0 - y1);
+            err += abs(y0 - y1) / 3;
         }
         if (err <= eps)
         {
