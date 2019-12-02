@@ -76,7 +76,7 @@ int main()
             y1 += (k11(x, y1, z1, t/2) + 2*k21(x, y1, z1, t/2) + 2*k31(x, y1, z1, t/2) + k41(x, y1, z1, t/2)) / 6;
             z1 += (k12(x+t/2, y1, z1, t/2) + 2*k22(x+t/2, y1, z1, t/2) + 2*k32(x+t/2, y1, z1, t/2) + k42(x+t/2, y1, z1, t/2)) / 6;
             y1 += (k11(x+t/2, y1, z1, t/2) + 2*k21(x+t/2, y1, z1, t/2) + 2*k31(x+t/2, y1, z1, t/2) + k41(x+t/2, y1, z1, t/2)) / 6;
-            err = (abs(y0 - y1) + abs(z0 - z1))/7;
+            err = (abs(y0 - y1) + abs(z0 - z1))/15;
             if (err < eps)
             {
                 z1 = z0;
